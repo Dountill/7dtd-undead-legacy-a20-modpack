@@ -3,7 +3,8 @@ The mods we use on our Survival Gaming Nederland server
 Want to join us? Check [our Discord](https://discord.gg/C5z598878q) for more information and access
 
 ## Description
-Some of the mods have been alteredd a little. The modnames have been changed to make sure they are loaded after UL is loaded.
+- Some of the mods have been altered a little.
+- The modnames have been changed to make sure they are loaded after UL is loaded.
 
 ## Undead Legacy
 We use an older version of 7 Days to Die (Alpha 20.7) because the overhaul mod Undead Legacy is not compatible with A21 yet.
