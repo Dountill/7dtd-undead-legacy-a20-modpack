@@ -9,6 +9,7 @@ Some of the mods have been alteredd a little. The modnames have been changed to 
 We use an older version of 7 Days to Die (Alpha 20.7) because the overhaul mod Undead Legacy is not compatible with A21 yet.
 Need to download Undead Legacy? [You can find it here](https://ul.subquake.com/download)
 
+## Mods included in this repository
 |Mod name|Description| 
 |:---:|:---|
 |[AntiBullshit](https://www.nexusmods.com/7daystodie/mods/2691?tab=description) |A collection of specific patches specially made for Undead Legacy|
