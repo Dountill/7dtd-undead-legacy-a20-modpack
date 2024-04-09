@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Less Sadistic Engine Loot Re-Balancing (1 of 2) === -->
+  <!-- See blocks.xml for the other settings. -->
+
+  <!--
+    SUMMARY OF NEW ENGINE LOOT GROUP CHANCES:
+
+    - Motorcycle Engine: 2/10 (20%), good chance, so you won't have to wrench
+      ANY repairable motorcycles you find in the world! Those should be REPAIRED
+      instead. It should be FUN to find a repairable motorcycle, instead of feeling
+      sadness and torture at having to wrench them all to progress in the vehicle
+      schematic list, since motorcycles are insanely rare in Undead Legacy. Just
+      continue visiting Pass-N-Gas stations and opening its loot crates until you
+      naturally find a Motorcycle Engine, and then you'll be overjoyed when you
+      can finally go and get that repairable motorcycle you've always wanted!
+
+    - Compact Engine: 2.5/10 (25%), get those via Wrench at construction sites
+      instead! We have massively boosted their drop rate from construction site
+      machines. However, we keep a very good chance here too, just in case every
+      construction site has already been taken apart by previous players and you
+      fail to get any POI quests to reset those construction sites.
+
+    - Car Engine: 4/10 (40%), get those via Wrench on cars instead! Chance
+      is only kept high inside this engine group for "real-world logic purposes",
+      since normal car engines are the most common engine type in the world,
+      and they aren't worth much at traders either. Yes, they're meant to be
+      as common as "candy", just like the real world. It's a freaking CAR engine,
+      and you'll OBVIOUSLY find lots of those inside CAR REPAIR SHOPS!
+
+    - Buggy Engine: 0.5/10 (5%), they are only used for Dune Runners, no recipes,
+      so you'll have more than enough of these by the time you want to use one.
+      They're kept rare to ensure that you most likely won't get one immediately,
+      but will have one by the time you want one. You can also occasionally find
+      them at traders, just like all other engines.
+
+    - Aviation Engine: 0.5/10 (5%), only used for Gyrocopters, and by then you
+      will have found an aviation engine thanks to our improved Pass-N-Gas crates.
+      This is the exact same balancing situation as with the Buggy Engines above.
+
+    - Truck Engine: 0.5/10 (5%), get those via Wrench on trucks instead. Most
+      trucks have them, such as military/school/ambulance/utility trucks!
+
+    Yes, it's nuts that we have to make engines so common now, but we're forced
+    by Undead Legacy's terribly low spawn of motorcycles in the world itself.
+    It's not our fault that Undead Legacy has a Motorcycle problem...
+
+    NOTES REGARDING THIS LOOT GROUP AND HOW IT'S USED:
+
+    The RARE "groupEngines" loot group is used by a lot of different containers,
+    such as: Vehicle trunks (lootable vehicles, very rare), Destroyed generator
+    banks (20% chance), "Pass-N-Gas" Sealed Shipping Crate (extremely low chance
+    for engines by default, but we fix that below), and also as extremely rare
+    loot in anything else that can contain "automotive (vehicle) parts" (via the
+    "garage" loot container type).
+
+    The point is that the "engines" loot group is extremely rare by default.
+    Therefore, we fix that by giving Pass-N-Gas containers a very high chance
+    of containing at least 1 random engine. It makes sense that mechanics would
+    store engines in their supply crates. We implement the chance as a bonus
+    item, separately from the normal chance to contain an engine, which means
+    that you'll sometimes (very rarely) even see 2 engines in a Pass-N-Gas crate.
+
+    There's no reason to hold back on engines for progression reasons, because
+    you could already wrench a bunch of trucks in vanilla Undead Legacy and go
+    directly to a "Truck Engine", the strongest engine/generator in the game
+    on day 1 in the game. Likewise, it's very easy to get car engines by just
+    wrenching various cars littered all over the map. Therefore, it doesn't
+    matter that we're making engines as a whole better balanced. We had to do
+    this to fix the terrible RNG bullshit, where you spend most of your time
+    in Undead Legacy trying to find a freaking unicorn "Motorcycle Engine" just
+    to be able to progress on your vehicles (since UL forces you to learn all
+    vehicle schematics in their order, without being able to skip motorcycles),
+    all while the map itself barely has any motorcycles at all. That's just
+    awful game design and is pure, boring torture. Especially since most random
+    motorcycles in the world are broken (won't drop engines), and even the
+    repairable ones had a terrible drop rate for engines.
+
+    The fact that repairable motorcycles are still so rare on the map also limits
+    the impact of now having better access to motorcycle engines, since you'll
+    still have to travel far and search the roads to find a nice, repairable MC.
+
+    Furthermore, another reason for making engines more available is to ensure
+    that the players don't have to move around the map like locusts that are
+    scrapping every car in existence and making the maps look sad and desolate.
+    It was already easy to get Car and Truck engines, which just required players
+    to scrap an average of 4-5 cars or trucks. Increasing the engine availability
+    just means that we're intentionally discouraging people's neurotic scrapping
+    of every vehicle you see, and we're further fixing that by also boosting the
+    chance of getting engines when scrapping vehicles (see "blocks.xml"), so that
+    maps can retain their apocalyptic "beauty" instead of getting barren streets
+    where everything has been scrapped by the players.
+
+    Yes, you will have lots of leftover engines (especially Car Engines). That's
+    totally intentional. They aren't worth much money, and you can just get rid
+    of your extras. Thanks to this re-balancing of engine availability, you won't
+    even have to scrap vehicles unless you're unable to find Pass-N-Gas crates.
+
+    NOTE: We adjust EVERY engine type here, to re-balance the engine loot group
+    as a whole. If other engine types are added to Undead Legacy in the future,
+    they should be re-balanced below too. However, them adding other engine types
+    is very unlikely, and the scaling of all balancing below has been made to
+    use the same probability number scales as vanilla Undead Legacy itself,
+    which means that any extra engines added later would automatically fit
+    very well with our re-balanced probabilities, without further adjustments.
+
+    WARNING: Manually tweaking ANY of the probabilities below will have a VERY
+    big impact and will lower ALL other engines by same amount, so be careful!
+    The numbers that were chosen in this loot re-balancing were the result of
+    very careful consideration, taking into account vehicle availability, engine
+    values at traders, realism, along with lots of actual loot-crate testing,
+    since the Pass-N-Gas loot crates now frequently contain engines.
+
+    You shouldn't blindly mess with any of these engine probabilities!
+  -->
+
+  <!-- Motorcycle Engines in "Engines" loot group. -->
+  <!-- NOTE: These are very important, since they're an early/mid-game progression step. -->
+  <!-- UL Default: 1/15 (6.7%) -->
+  <set xpath="/lootcontainers/lootgroup[@name='groupEngines']/item[@name='ulmResourceEngineV8M']/@prob">2</set>
+
+  <!-- Compact Engines in "Engines" loot group. -->
+  <!-- NOTE: Doesn't matter much anymore, since we've fixed construction site drops of them. -->
+  <!-- UL Default: 4/15 (26.7%) -->
+  <set xpath="/lootcontainers/lootgroup[@name='groupEngines']/item[@name='smallEngine']/@prob">2.5</set>
+
+  <!-- Car Engines in "Engines" loot group. -->
+  <!-- NOTE: They also drop frequently when wrenching cars after our adjustments, so we technically don't need much of them in this group, but they're kept for balance/realism. -->
+  <!-- UL Default: 1/15 (6.7%) -->
+  <set xpath="/lootcontainers/lootgroup[@name='groupEngines']/item[@name='ulmResourceEngineV8']/@prob">4</set>
+
+  <!-- Buggy Engines in "Engines" loot group. -->
+  <!-- NOTE: They are only used for dune buggies, not for any progression, so they don't matter much. -->
+  <!-- UL Default: 3/15 (20%) -->
+  <set xpath="/lootcontainers/lootgroup[@name='groupEngines']/item[@name='ulmResourceEngineV6']/@prob">0.5</set>
+
+  <!-- Aviation Engines in "Engines" loot group. -->
+  <!-- NOTE: They are only used for gyrocopters at end-game, but they're definitely important for that. -->
+  <!-- UL Default: 4/15 (26.7%) -->
+  <set xpath="/lootcontainers/lootgroup[@name='groupEngines']/item[@name='ulmResourceEngineV4']/@prob">0.5</set>
+
+  <!-- Truck Engines in "Engines" loot group. -->
+  <!-- NOTE: They also drop frequently when wrenching trucks after our adjustments, but we still need them here since they're rarer than cars when wrenching. -->
+  <!-- NOTE: These engines have the highest value of all engines when sold to traders, so we keep their chance "low" here. -->
+  <!-- UL Default: 2/15 (13.3%) -->
+  <set xpath="/lootcontainers/lootgroup[@name='groupEngines']/item[@name='ulmResourceEngineV12']/@prob">0.5</set>
+
+  <!-- Sealed Pass n Gas Loot Crates: Give them a static 40% chance of having an engine, independently of their normal chance to contain an engine (meaning that sometimes you'll get 2). -->
+  <!-- NOTE: This chance of engines is high since other players will usually have looted every Pass-N-Gas, and you won't be able to get crates unless you encounter 1-3 random crates in certain POIs or during a quest reset. All engine probabilities are balanced around this rate. -->
+  <!-- UL Default: There's only an extremely small chance of engines in Pass n Gas loot crates by default, since engines are ONLY a rare sub-group of a rare loot group by default! -->
+  <append xpath="/lootcontainers/lootgroup[@name='groupPassNGas']">
+    <item group="groupEngines" count="1" prob="0.4" force_prob="true"/>
+  </append>
+</Messajah>

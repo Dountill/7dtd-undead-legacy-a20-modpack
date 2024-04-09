@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Perk Points Per Level === -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - Simply tweak the set-instruction below if you want a different perk amount
+      whenever you gain a level.
+    - However, it's recommended to ONLY use the values 1 or 2. If you want even
+      faster game progression than that, then you should boost the game's own "XP
+      Multiplier" instead, to ensure that your actual player level rises faster,
+      which in turn means that your "loot stage" rises, which will lead to finding
+      better loot in boxes, thus giving you smooth loot and perk progression.
+    - By default, perk progression in the game is extremely slow and tedious.
+      Therefore, it's very popular to set it to 2 perks per level. That tweak
+      has been included here, to make it an "all in one" tweak that doesn't
+      require any other mods.
+    - WARNING: Read the "Z_UndeadLegacy_AntiBullshit/GUIDE-Adding Perk Points
+      to Existing Save.txt" document for more information if you're adding this
+      tweak to an existing save (it applies to both servers and singleplayer).
+  -->
+
+  <!-- UL Default: 1 (same as vanilla) -->
+  <set xpath="/progression/level/@skill_points_per_level">2</set>
+</Messajah>

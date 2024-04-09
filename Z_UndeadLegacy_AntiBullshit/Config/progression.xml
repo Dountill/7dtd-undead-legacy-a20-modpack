@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Undead Legacy Anti-Bullshit === -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - This "main folder" is just the location of the main "README.txt" file
+      and various extra documentation and guides.
+    - All of the actual tweaks exist within their own "sub-module" folders,
+      for easy organization and editing.
+    - Check the module folders if you want to read detailed code comments
+      to learn more about every tweak, or if you want to adjust the settings
+      of any of the tweaks.
+    - You can delete individual tweak folders to remove specific tweaks,
+      since every tweak is independent. However, the tweaks are all balanced
+      to work together as a "complete package", so removing tweaks or only
+      using specific tweaks is entirely up to your own discretion.
+    - The "README.txt" in this project describes all of the included modules,
+      and provides a general overview of everything. You should definitely
+      read it before tweaking anything.
+  -->
+</Messajah>

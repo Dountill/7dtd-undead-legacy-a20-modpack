@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Slightly Increased Bikes/Minibikes/Motorcycles Spawns === -->
+
+  <!--
+    HOW THE SPAWNING WORKS:
+    - The game spawns "clutter/decorations" the first time any player visits
+      a chunk. And it also re-spawns all clutter inside whole POI boundaries
+      whenever a POI becomes reset via a quest.
+    - Clutter doesn't spawn until a player visits a chunk, which means that
+      these changes will take effect on existing servers/saves too, but only
+      for areas that no player has visited yet.
+    - Area chunks are very small, only 16x16 squares. And the chunks don't
+      generate until a player is very close to them and looking at them.
+      Meaning that you don't have to worry that visiting a city somehow "marks
+      that whole city as finished already". You have to be very close to
+      a chunk to make the game generate that chunk!
+    - Chunks are NOT all the same. Inner city roads have a VERY LOW chance of
+      randomly generated clutter / vehicles. Meanwhile, HIGHWAYS between cities
+      and the OUTER roads at the EDGES OF CITIES have a VERY HIGH chance
+      of randomly generated clutter. The game's programming theory is basically
+      "people fled from the cities, and their vehicles broke down or ran out of
+      gasoline on the long highways between cities".
+    - Therefore, if you want to find bikes, minibikes or motorcycles,
+      the BEST place to look is at the roads at the OUTER EDGES of cities,
+      and at the HIGHWAYS / ROADS between cities.
+    - Asphalt roads have a higher chance of vehicle spawns than dirt/gravel
+      roads, but both road types can contain vehicles.
+    - Vehicles can also spawn randomly on the asphalt/gravel inside POIs,
+      such as the driveways of POIs, or parking lots at big "parking lot"
+      POIs, but the best chance to find minibikes and motorcycles is always
+      at the roads outside cities!
+    - There is NO BIOME BONUS! The forest is as good as any other biome
+      for finding motorcycles! Many people wrongly believe that deserts have
+      a higher chance of motorcycles. That isn't true! It might just feel
+      that way because you're seeing a clearer view of the road when there's
+      just a desert without any trees. But there's nothing in the game's
+      code that adds more motorcycles to any specific biomes.
+    - The best advice is to simply follow the large roads AWAY from the
+      cities, and you'll find plenty of motorcycles, minibikes and bicycles!
+
+    WARNING:
+    - We're slightly raising the chances of bikes/minibikes/motorcycles
+      on roads in the code below. DON'T MESS WITH THESE VALUES!
+    - Every vehicle counts as an "entity", which takes up resources on
+      the server. If you clutter the map with too many entities, you'll
+      cause issues.
+    - Furthermore, if you modify these values too much, you'll start to
+      push away all other vehicle types from the roads, so that you barely
+      see any cars or emergency vehicles spawning on the roads anymore.
+    - That's why these tweaks are very conservative. There's ways to
+      re-balance other vehicle to still be more common, but it isn't worth
+      the effort and issues it would cause, since motorcycles are "easy"-ish
+      to find if you simply look at LARGE ROADS away from/between cities!
+    - It's also nice that motorcycles are pretty rare, since it's a fun
+      little adventure to follow a large road to find one that you can
+      repair and take over!
+  -->
+
+  <!-- Chance for random Bikes/Minibikes/Motorcycles on Asphalt roads. -->
+  <!-- WARNING: Don't mess with this. You'll break the balance and cause regular cars to disappear from the game. Very tiny changes have a MASSIVE impact here! -->
+  <!-- UL Default: 0.0008 -->
+  <set xpath="//poi[@blockname='terrAsphalt']/blockontop[@blockname='ulmVehicleBikesARandomHelper' and @prob &lt; 0.001]/@prob">0.001</set>
+
+  <!-- Chance for random Bikes/Minibikes/Motorcycles on Gravel/Dirt roads. -->
+  <!-- WARNING: Don't mess with this. You'll break the balance and cause regular cars to disappear from the game. Very tiny changes have a MASSIVE impact here! -->
+  <!-- UL Default: 0.00025 -->
+  <set xpath="//poi[@blockname='terrGravel']/blockontop[@blockname='ulmVehicleBikesARandomHelper' and @prob &lt; 0.00035]/@prob">0.00035</set>
+</Messajah>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Action Skill XP Boost === -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - If you want this tweak's default 3x boost, you don't have to do anything!
+    - Alternatively, pick your desired XP multiplier: 1x, 2x, 3x, 4x or 5x.
+    - Modify BOTH values below to their new, respective numbers, for your
+      desired Action Skill XP multiplier. See their value-lists in comments!
+    - You MUST use the EXACT, MATCHING values below, otherwise you'll DESTROY
+      the correlation between attribute "+%SkillXP" bonuses and normal XP gains!
+  -->
+
+  <!-- UL Default: 0.05 -->
+  <!-- 1x: 0.05 -->
+  <!-- 2x: 0.1 -->
+  <!-- 3x: 0.15 -->
+  <!-- 4x: 0.2 -->
+  <!-- 5x: 0.25 -->
+  <!-- Higher: That's silly. You'll have to calculate those factors yourself. -->
+  <set xpath="/buffs/buff[@name='onAttributeLevelChanged']/effect_group/triggered_effect[contains(@cvar,'ExpBonus') and @operation='set']/@value">0.20</set>
+
+  <!-- UL Default: 0.5 -->
+  <!-- 1x: 0.5 -->
+  <!-- 2x: 1.0 -->
+  <!-- 3x: 1.5 -->
+  <!-- 4x: 2.0 -->
+  <!-- 5x: 2.5 -->
+  <!-- Higher: That's silly. You'll have to calculate those factors yourself. -->
+  <set xpath="/buffs/buff[@name='onAttributeLevelChanged']/effect_group/triggered_effect[contains(@cvar,'ExpBonus') and @operation='add']/@value">2.0</set>
+</Messajah>

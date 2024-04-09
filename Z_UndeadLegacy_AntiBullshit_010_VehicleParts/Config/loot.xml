@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Slightly Improved Vehicle Parts Availability (1 of 2) === -->
+  <!-- See blocks.xml for the other settings. -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - We give "Pass N Gas" loot crates a VERY LOW chance of containing a bonus
+      part for a vehicle that matches the player's own "Loot Stage" number.
+    - "Vehicle Parts" here refers to the finished components of a vehicle, such
+      as the bicycle or motorcycle frame, the handlebars, etc, which can be
+      combined into a fully assembled vehicle from scratch. It DOESN'T refer
+      to raw components that are used to repair broken vehicles in the world!
+    - The "Loot Stage" scaling means that most players will ONLY be seeing Bicycle
+      parts for a very long time, since the Loot Stage requirements for better
+      vehicles are VERY high.
+    - You can visit higher-tier POIs and harder biomes, since those will add
+      very large bonuses to the Loot Stage. But even then, it's still very hard
+      to reach the required "Loot Stages" where you'll see interesting vehicle
+      parts, and it's equally difficult to actually find "Pass N Gas" loot
+      crates when you actually get to those biomes and can survive the crazy
+      zombies that live there.
+    - The reason why advanced vehicle parts need an extremely high "Loot Stage"
+      is mostly because Undead Legacy intentionally prefers that players have
+      to craft from scratch or repair vehicles in the world instead of looting
+      all finished parts themselves. So you'll mostly see basic parts. All
+      advanced parts require such a high "Loot Stage" that you'll be "done"
+      with the game by the time you see them in crates!
+    - The primary goal with this change is actually that players in a multiplayer
+      world will gradually be able to receive some occasional, spare vehicle
+      parts, so that they can help out newer players on the server when it has
+      been running for a while, when most of the world-repairable vehicles have
+      already been destroyed by other players. It's very hard for new players
+      to get any vehicles when a server has been running for a long time.
+    - Game balance still remains, since the player will already have progressed
+      past those vehicles long before they reach a "Loot Stage" that's high enough
+      to loot advanced vehicles.
+    - This vehicle parts tweak also goes hand in hand with the "EngineRebalance"
+      tweak sub-module, which actually balances engine availability for smoother
+      gameplay during the actual vehicle progression stages, where you research
+      the maintenance schematics (via engines) and repair vehicles in the world.
+    - To further balance the repairable vehicles in the world, we have to consider
+      what components are required for repairs. We have already taken care of
+      engines, but there are other, "special" parts that you'll need for repairs.
+      Those include "Headlights" (which are easy to get by wrenching all kinds
+      of vehicles, and in loot), "Lead Battery" and "Ball Bearings" (both of
+      which can be looted or wrenched), and finally the specific type of "Wheel"
+      that the vehicle requires. You'll also need various metal plates, etc,
+      but those are all very easy to get or craft.
+    - All types of vehicle wheels can be researched and crafted pretty easily,
+      albeit at a heavy Research Data cost (200 for bicycles and 400-800 for
+      all the vehicles after that). But since they are all craftable, they don't
+      need any adjustment for their availability.
+    - Players are still intentionally gated by having to research the wheels,
+      and by having to research and learn all earlier/lesser vehicle schematics,
+      otherwise they'd just be able to immediately loot the parts for a good
+      vehicle and repair one! We ensure that they still can't skip progression.
+    - The headlights, car batteries and ball bearings, however, can only be
+      found via manual looting and wrenching, and they're annoying since they're
+      common enough that you can easily get tons of them by destroying every car
+      or truck you see (with a wrench), but for example the Headlight drop chance
+      is only between 20-50% by default, which means that you have to destroy cars
+      (20% usually) and trucks (50% usually) like locusts "for no good reason".
+      It's also annoying since you can clearly see that the vehicles all have
+      headlights and batteries, yet most of them won't contain any by default,
+      which makes absolutely zero sense and is just tedious for no reaon.
+    - Therefore, we'll also slightly boost the drop rate of headlights, batteries
+      and ball bearings. Just a tiny bit so that it's less annoying. It was
+      already easy as hell to get those parts in "vanilla Undead Legacy". It
+      was just very grindy and repetitive, and meant that players destroyed all
+      vehicles like locusts, which is totally pointless and just made the cities
+      look even uglier.
+  -->
+
+  <!-- Sealed Pass n Gas Loot Crates: Give them a static 4% chance of having a vehicle part that's appropriate for your LootStage, independently of their normal chance to contain items (meaning that sometimes you'll get extra parts via the regular, low loot chances too). -->
+  <!-- UL Default: There's only an extremely small chance of vehicle parts in Pass n Gas loot crates by default, since vehicle parts are ONLY a rare sub-group of a rare loot group by default! -->
+  <append xpath="/lootcontainers/lootgroup[@name='groupPassNGas']">
+    <item group="vehiclePartsTiered" count="1" prob="0.04" force_prob="true"/>
+  </append>
+</Messajah>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Increased "Old Book" Availability (1 of 2) === -->
+  <!-- See recipes.xml for the other settings. -->
+
+  <!-- Range of how many "Old Books" you can find in a book container. -->
+  <!--
+    USAGE INSTRUCTIONS:
+    - Remember that our "Research" tweak module also changes Old Books to be a
+      pretty decent source for Research Data, so you SHOULDN'T boost the book
+      amounts too much here!
+    - The Old Books are required for a ton of workstation upgrades and creating
+      various crafting recipes in the Research Station, among other things,
+      so they're a massive pain point in Undead Legacy.
+    - Old Books can exist within many places such as bookshelves, book piles,
+      mailboxes, newspaper stands, trash piles, etc. But they share loot slots
+      with a lot of other types of items, so the chance of actually seeing Old
+      Books is low. Therefore, we're increasing the amount of books from the
+      default of just 1x Old Book, to a random range of books (the recommendation
+      is between "1-3 books"). So when they show up in a container, you have
+      a good chance of finding a few of them. This makes a lot more lore sense,
+      since only a madman would store 1 book in a whole freaking bookshelf. But
+      more importantly, it means that you've got a better chance at smooth and
+      fun game progression through Undead Legacy, without having to constantly
+      curse at the terribly punishing RNG systems in that mod.
+    - You're of course free to change this range to anything else, but try
+      to keep it balanced so that you actually have to play the game and will
+      feel happy when you find some books. If you make them too abundant, then
+      you might as well just enable Creative Mode and spawn everything instead.
+    - The book amount you find in-game isn't influenced by character stats,
+      such as your lootstage, looting skill, or special skill books. The amount
+      you set here is the same amount you'll find as a low level and at endgame.
+    - Keep in mind that you can craft your own "Old Books" in the mid-game,
+      via your workstations, and that we're also balancing that crafting cost
+      to make that a viable way of getting books. You can also sometimes find
+      stacks of Old Books in trader shops, although they're very rare.
+  -->
+  <!-- UL Default: 1 -->
+  <set xpath="/lootcontainers/lootgroup[@name='groupJunkPapers']/item[@name='ulmResourceBook']/@count">1,3</set>
+</Messajah>

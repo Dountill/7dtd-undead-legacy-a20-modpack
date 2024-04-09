@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Item Upgrade Probability: 100% Success === -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - Every item and quality in Undead Legacy has different upgrade chances
+      by default. This tweak sets everything to 100%, to get rid of awful RNG.
+  -->
+
+  <!-- UL Default: Ranging from 100% to as low as 60% for the highest qualities. -->
+  <set xpath="/recipes/modify/upgrade/@prob">1.0</set>
+</Messajah>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Land Claim Blocks: Easier Crafting === -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - By default, the vanilla (unmodded) game's LCBs are crafted in your own
+      backpack for just "5x Small Stone". Very cheap!
+    - Undead Legacy changed it to be an extremely expensive late-game item,
+      and the author has said that the only reason was "to make it very hard
+      for newbies to claim land on servers if they aren't gonna stick around".
+    - However, the crafting cost is absolutely ridiculous. You need "25x Concrete
+      Mix, 50x Iron Plating" in a heavily upgraded "Artisan's Table (Tier 2)".
+    - If new players can't afford to make a claim block, then their containers
+      are completely unprotected and anyone can go into their base and steal
+      everything. That's why the LCB crafting cost needs to be affordable.
+    - We instead change it to be craftable in the Carpenter's Table (the first
+      crafting table that you make during the tutorial), and we set the cost to
+      a reasonable "10 Wood, 10 Small Stones, 5 Scrap Iron". We still keep the
+      one minute crafting timer, to keep the "serious" feeling of crafting
+      a land claim block.
+    - Keep in mind that Undead Legacy allows the players to lift their claims
+      and place them somewhere else (without losing the LCB), so it's okay to
+      have a slightly higher crafting cost than the unmodded vanilla game.
+    - If you run a public "mega server", you may want to raise these tweaked
+      costs. These new settings are meant for servers that aren't being flooded
+      with temporary newbies every day. But they'll be fine for most publics
+      too, considering that vanilla LCBs are extremely cheap and work fine
+      for most servers, since players can only place a certain amount of claims,
+      after which their oldest claims become invalid (destroyable in 1 hit).
+    - Also keep in mind that Land Claim Blocks don't "scrap" into anything,
+      and cannot be dismantled in the Recycling Station either, which means
+      that you don't have to worry about people crafting these cheaply and
+      then scrapping them for resources. They can't do that.
+  -->
+
+  <!-- UL Default: ulmStationArtisan_2 -->
+  <set xpath="/recipes/recipe[@name='keystoneBlock']/@area">ulmStationCarpenter_1</set>
+
+  <!-- UL Default: 25x resourceConcreteMix, 50x resourceForgedIron -->
+  <set xpath="/recipes/recipe[@name='keystoneBlock']">
+    <ingredient name="ulmResourceLumber" count="10"/> <!-- Wood -->
+    <ingredient name="resourceRockSmall" count="10"/> <!-- Small Stone -->
+    <ingredient name="resourceScrapIron" count="5"/> <!-- Scrap Iron -->
+  </set>
+</Messajah>

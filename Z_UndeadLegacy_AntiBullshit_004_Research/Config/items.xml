@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Increased "Research Data" Availability (1 of 2) === -->
+  <!-- See recipes.xml for the other settings. -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - Carefully read ALL warnings.
+    - Feel free to REDUCE these values closer to vanilla if you prefer grinding,
+      but most people utterly hate the research grind, so most people will
+      absolutely love these very balanced changes, which preserve the game's
+      feeling of choice, while not feeling like such an utter torture anymore.
+    - DON'T boost these values higher, since you'll get an exploitable "joke" game!
+  -->
+
+  <!-- How much "Research Data" you get when scrapping Books/Schematics. -->
+  <!-- DEVELOPER NOTE: All books/schematics use "schematicMaster", while "questMaster" is only used by a handful of scrappable Treasure maps. -->
+  <!-- DEVELOPER NOTE: rg 'matResearch' -C10 -->
+  <!-- DEVELOPER NOTE: rg 'ingredient.*ulmResourceResearch.*count.*?\d+"' -B1 -->
+  <!-- DEVELOPER NOTE: rg 'ingredient.*ulmResourceResearch" count="100"' -B1 -->
+  <!--
+    WARNINGS:
+    - SHORT SUMMARY: NEVER RAISE THIS VALUE ABOVE 100! VALID RANGE: 50-100!
+    - Don't make this too high! You'll kill your long-term game balance and will
+      get extremely bored when you have nothing to strive for and no more reason
+      to hunt for research data outside your base anymore!
+    - Yes, the Research Data system in Undead Legacy is painful, but it's designed
+      for your own good! It gives you a goal and purpose in the game, such as
+      having a specific recipe you want to unlock if you weren't lucky enough
+      to get it via loot. It's an alternative way to get recipes you haven't
+      found yet. It also promotes choice, such as "Do you want to learn this
+      recipe, or would it be better to scrap it for research?".
+    - You should NEVER go above 100, unless you want to completely "break the
+      game", because the cheapest recipes in the game only cost 100 Research
+      Data to craft, which means that you could craft those for 100, and then
+      scrap them for more than they cost to craft! And yeah, they still cost
+      some other materials too, but there are recipes such as "Cotton Seed"
+      which only costs 100 Research, 10 Paper and 1 Cotton Seed to craft. There
+      are plenty of other basic recipes with very low costs, including many that
+      can be mass-produced via cheap resources like iron, so you should literally
+      NEVER go higher than 100 in the scrap value below!
+    - Putting it exactly at 100 is fine. That means that if the player creates
+      the cheapest recipe for 100 Research Data + some other materials, and then
+      scraps it, they'll get the exact amount of Research Data back (100) while
+      losing all of their other crafting materials, which is a fair tradeoff.
+    - Feel free to reduce it to an in-between value instead, such as 75 or 80.
+    - Remember that UL has a lot of GRINDY goals, such as upgrading your various
+      crafting stations, some of which cost 800 Research Data for the final
+      upgrade for just one station. So it's recommended to get 100 data per
+      scrapped recipe, which is the maximum balanced/safe value you can use.
+    - SHORT SUMMARY AGAIN: NEVER RAISE THIS VALUE ABOVE 100! VALID RANGE: 50-100!
+    - Another, semi-related warning: Your server's/game's "Loot Abundance" setting
+      should always be at 100% or less when playing Undead Legacy. Otherwise the
+      game's book containers often contain stacks of multiple IDENTICAL books,
+      such as 2x Sniper Skill Book, 2x Bow Schematic, etc, which really makes
+      the game trivial. That issue is caused by vanilla Undead Legacy and isn't
+      related whatsoever to these tweaks, but it's mentioned here since it's very
+      important to keep that setting at 100% to have UL's intended loot amounts!
+  -->
+  <!-- IMPORTANT: We use a selector below to only tweak the Research Data amount if it's less than 100, so that we're future-proof against potential higher values being added to UL in the future. -->
+  <!-- UL Default: 50 -->
+  <set xpath="/items/item[@name='schematicMaster' or @name='questMaster']/property[@name='Material' and @value='matResearch']/parent::*/property[@name='Weight' and @value &lt; 100]/@value">100</set>
+</Messajah>

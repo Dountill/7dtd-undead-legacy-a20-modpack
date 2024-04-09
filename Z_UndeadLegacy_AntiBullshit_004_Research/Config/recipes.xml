@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Increased "Research Data" Availability (2 of 2) === -->
+  <!-- See items.xml for the other settings and general usage/warnings. -->
+
+  <!-- Crafting cost to create an "Old Book" via "Research Data". -->
+  <!-- DEVELOPER NOTE: rg 'recipe.*ulmResourceBook' -C5 -->
+  <!-- WARNING: This cost increase is important for game balance purposes. -->
+  <!-- UL Default: 5 -->
+  <set xpath="/recipes/recipe[@name='ulmResourceBook']/ingredient[@name='ulmResourceResearch']/@count">10</set>
+
+  <!-- How much "Research Data" an "Old Book" gives in the Recycling Station. -->
+  <!-- DEVELOPER NOTE: rg 'output.*ulmResourceResearch' -C5 -->
+  <!--
+    USAGE INSTRUCTIONS:
+    - Remember that our "OldBooks" tweak module also changes Old Books to be
+      much more common in the world, and easier to craft. See that module's code
+      for more settings related to Old Books.
+    - Traders may rarely sell a stack of 1-50 books for $60 per book. Be careful
+      and DON'T boost this recycling value too much, otherwise it will become
+      way too easy to get research and you'll kill your own game enjoyment!
+    - This recycling "Research Data" value MUST always be EQUAL OR LOWER than
+      the crafting cost for Old Books (above). Otherwise you'll get an infinite
+      research exploit, where you can craft books for less than their recycling.
+      It's fine to make the crafting cost exactly the same as the recycling value,
+      since it basically means "You put that much knowledge into the book, so
+      of course you'll get the exact same amount of knowledge back from it
+      since it contains exactly that much knowledge". It's balanced both from
+      a gameplay perspective and a lore perspective.
+    - For balance, the suggested recycling value range is 5-15 Data, which fully
+      keeps the "worth" of Old Books (since they're an ingredient of many recipes),
+      while still giving you a way to get a slight injection of extra research if
+      you're willing to sacrifice some Old Books to get some research quickly.
+    - However, a lot of recipes/schematics require Old Books as part of their
+      crafting cost, usually requiring 10 Old Books, which means that recycling
+      your Old Books is almost never a good idea. For that reason, we default to
+      significantly raising the recycling value here, so that you get something
+      useful when you decide to sacrifice Old Books to get some Research Data.
+    - For reference, old versions of Undead Legacy used to give 5 research per
+      recycled book, and even with "that much", people didn't think it was worth
+      wasting the books by recycling them, so UL's new default of just "2" is
+      terrible and definitely needs to be significantly increased.
+    - The value "10" would be recommended, since it's very well balanced and
+      still preserves the need to decide whether you'll recycle the Old Book
+      for Research Data, or to keep the book itself for crafting things.
+  -->
+  <!-- UL Default: 2 -->
+  <set xpath="/recipes/recycle[@name='ulmResourceBook']/output[@name='ulmResourceResearch']/@count">10</set>
+</Messajah>

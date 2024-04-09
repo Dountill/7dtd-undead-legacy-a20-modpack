@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Slightly Improved Vehicle Parts Availability (2 of 2) === -->
+  <!-- See loot.xml for the other settings and general usage/warnings. -->
+
+  <!--
+    USAGE INSTRUCTIONS:
+    - For game balance purpose, we are raising the availability of vehicle
+      repair parts that cannot be crafted. You shouldn't have to suffer from
+      bad RNG chances for things that you can't craft! Vital components that
+      are outside the player's own control (RNG) aren't fun game design.
+      That's why these were slightly boosted.
+    - We increase Headlights availability by roughly +15% from all vehicles.
+      All cars already had a 20% chance, meaning that now they'll have a 35%
+      chance instead. Trucks had a 45-50% chance, and now have a 60% chance.
+      The result is less pressure to destroy every freaking vehicle you see.
+    - We are also increasing "Lead Batteries" by roughly +10%, and Ball Bearings
+      by roughly +10-15%, but for these items we ONLY raise sources that had the
+      WORST drop chances, while leaving all the "good" sources' drop rates as-is.
+    - The Ball Bearings are the most important, since you need 4x Ball Bearings
+      to make 1x Cement Mixer, for example. You'll also need 3x per Blade Trap,
+      and 1-4x per vehicle Wheel (depends on the type of vehicle). So the ball
+      bearings are very important. Although you'll usually get 1-2 or 1-3 of
+      them per object that drops ball bearings, which helps balance that out.
+    - The Headlight requirements vary per vehicle, but you always need multiple,
+      which is why that chance is also greatly increased.
+    - The Lead Battery only really requires one per vehicle you're repairing,
+      but they're used in other recipes too, which is why they get a small boost.
+    - See the "loot.xml" file for more information about the reasons behind these
+      balancing changes.
+    - IMPORTANT: A few vehicles require the perk "Salvaging Operations" at "1/5"
+      or higher to be able to drop Ball Bearings and Lead Batteries, and at "2/5"
+      or higher to also be able to drop Headlights. Otherwise those things won't
+      be part of CERTAIN vehicle loot tables. You should therefore always have
+      salvaging operations at 2/5 or higher when you're wrenching anything. This
+      is the same situation as engines, which also requires 2/5 or higher in many
+      cases. You can read the code comments in the "EngineRebalance" tweak for
+      more information about how the salvaging perk and action skills work.
+  -->
+
+  <!-- DEVELOPER NOTE: rg -i 'drop.*(resourceHeadlight|carBattery|ulmResourceBallBearings).*prob' -B60 -->
+
+  <!-- Headlight. -->
+  <!-- NOTE: We raise the drop rate of anything where it was above 35% but less than 60%, to have a 60% chance, to reduce the need to destroy the whole damn world. -->
+  <!-- NOTE: We also raise the minimum drop rate to 35%, but anything that already has a higher chance will keep their own higher chance. -->
+  <!-- IMPORTANT: If you're trying to tweak this, you should CAREFULLY read ALL of the "@prob" conditions in the matching below. All of the numeric conditions have to match the new, desired values, as seen below. -->
+  <!-- UL Default: 20% from most cars, 45-50% from trucks. -->
+  <set xpath="/blocks/block/drop[@name='resourceHeadlight' and @event='Harvest' and @prob &gt; 0.35 and @prob &lt; 0.6]/@prob">0.6</set>
+  <set xpath="/blocks/block/drop[@name='resourceHeadlight' and @event='Destroy' and @prob &gt; 0.35 and @prob &lt; 0.6]/@prob">0.6</set>
+  <set xpath="/blocks/block/drop[@name='resourceHeadlight' and @event='Harvest' and @prob &gt; 0.0 and @prob &lt; 0.35]/@prob">0.35</set>
+  <set xpath="/blocks/block/drop[@name='resourceHeadlight' and @event='Destroy' and @prob &gt; 0.0 and @prob &lt; 0.35]/@prob">0.35</set>
+
+  <!-- Lead Battery. -->
+  <!-- NOTE: You only need a few of these, so the rate is still kept "low" in general. -->
+  <!-- NOTE: We raise the drop rate of anything where it was below 15%, to exactly 15%, to reduce the need to destroy the whole damn world. -->
+  <!-- IMPORTANT: If you're trying to tweak this, you should CAREFULLY read ALL of the "@prob" conditions in the matching below. All of the numeric conditions have to match the new, desired values, as seen below. -->
+  <!-- UL Default: 5% from most sources, up to 20% from some common sources, and 40/60% from the two rarest but best sources. -->
+  <set xpath="/blocks/block/drop[@name='carBattery' and @event='Harvest' and @prob &gt; 0.0 and @prob &lt; 0.15]/@prob">0.15</set>
+  <set xpath="/blocks/block/drop[@name='carBattery' and @event='Destroy' and @prob &gt; 0.0 and @prob &lt; 0.15]/@prob">0.15</set>
+
+  <!-- Ball Bearings. -->
+  <!-- NOTE: You need tons of these for all kinds of machines. -->
+  <!-- NOTE: We raise the drop rate of anything where it was below 25%, to exactly 25%, to reduce the need to destroy the whole damn world. -->
+  <!-- NOTE: The majority of sources give 1-2 or 1-3 of these, which is why it only required a small drop chance increase. -->
+  <!-- IMPORTANT: If you're trying to tweak this, you should CAREFULLY read ALL of the "@prob" conditions in the matching below. All of the numeric conditions have to match the new, desired values, as seen below. -->
+  <!-- UL Default: 10-15% from most sources, but 50% from the best sources. -->
+  <set xpath="/blocks/block/drop[@name='ulmResourceBallBearings' and @event='Harvest' and @prob &gt; 0.0 and @prob &lt; 0.25]/@prob">0.25</set>
+  <set xpath="/blocks/block/drop[@name='ulmResourceBallBearings' and @event='Destroy' and @prob &gt; 0.0 and @prob &lt; 0.25]/@prob">0.25</set>
+</Messajah>

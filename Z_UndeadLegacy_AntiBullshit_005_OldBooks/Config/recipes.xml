@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messajah>
+
+  <!-- === Increased "Old Book" Availability (2 of 2) === -->
+  <!-- See loot.xml for the other settings and general usage/warnings. -->
+
+  <!-- Crafting cost to create an "Old Book" via "Paper". -->
+  <!--
+    USAGE INSTRUCTIONS:
+    - Remember that our "Research" tweak module also changes Old Books to be a
+      pretty decent source for Research Data, and it therefore also changes the
+      "Research Data" cost of crafting more Old Books, to preserve the game's
+      balance. See that module's code for more settings related to Old Books.
+  -->
+  <!-- WARNING: This cost reduction is important for game balance purposes. -->
+  <!-- UL Default: 25 -->
+  <set xpath="/recipes/recipe[@name='ulmResourceBook']/ingredient[@name='resourcePaper']/@count">15</set>
+</Messajah>
