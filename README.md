@@ -1,6 +1,7 @@
 # 7 Days To Die - Undead Legacy - Alpha 20 - Modcpack
 The mods we use on our Survival Gaming Nederland server.
-# Want to join us? Check [our Discord](https://discord.gg/C5z598878q) for more information and access
+
+### Want to join us? Check [our Discord](https://discord.gg/C5z598878q) for more information and access
 
 ## Description
 - Some of the mods have been altered a little.
